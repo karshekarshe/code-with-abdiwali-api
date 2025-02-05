@@ -1,4 +1,4 @@
-# codewithwaliblog
+# Code With Abdiwali Blog
 My personal blog about technology articles. topic includes django, RestAPI , Java and more..
 
 ## Use Cases
