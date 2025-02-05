@@ -19,6 +19,7 @@ My personal blog about technology articles. topic includes django, RestAPI , Jav
 - Category
 - Project
 - Tag
+- Subscriber
 
 ## ERD
     
