@@ -1,5 +1,5 @@
 # Code With Abdiwali Blog
-My personal blog about technology articles. topic includes django, RestAPI , Java and more..
+My personal blog about technology articles. topic includes Django, Spring, RESTful API , Java, Python and more..
 
 ## Use Cases
 - User can register/login.
@@ -31,7 +31,7 @@ My personal blog about technology articles. topic includes django, RestAPI , Jav
 |-------------|---------------------------|--------------------------------------|----------------------------------|-----------------------------------------------|-----------------------------------------------|
 | `GET`       | `/comments`               | Get all top-level comments           | None                             | None                                          | `[{ "id": 1, "content": "Great post!", "user_id": 101, "subcomments": [...] }]` |
 | `GET`       | `/comments/{id}`          | Get a specific comment by ID         | `id` (in URL path)               | None                                          | `{ "id": 1, "content": "Great post!", "user_id": 101, "subcomments": [...] }` |
-| `POST`      | `/comments`               | Create a new comment                 | `content`, `user_id`             | `{ "content": "Nice!", "user_id": 102 }`      | `{ "id": 2, "content": "Nice!", "user_id": 102 }` |
+| `POST`      | `/comments`               | Create a new comment                 |  `title` `content`,`article`,`user`              | `{ "content": "Nice!", "user_id": 102 }`      | `{ "id": 2, "content": "Nice!", "user_id": 102 }` |
 | `POST`      | `/comments/{id}/reply`    | Create a subcomment (reply)          | `content`, `user_id`, `parent_id`| `{ "content": "Thanks!", "user_id": 103 }`    | `{ "id": 3, "content": "Thanks!", "user_id": 103, "parent_id": 1 }` |
 | `PUT`       | `/comments/{id}`          | Update a comment                     | `id` (in URL path), `content`    | `{ "content": "Updated comment!" }`           | `{ "id": 1, "content": "Updated comment!", "user_id": 101 }` |
 | `DELETE`    | `/comments/{id}`          | Delete a comment                     | `id` (in URL path)               | None                                          | `{ "message": "Comment deleted successfully" }` |
