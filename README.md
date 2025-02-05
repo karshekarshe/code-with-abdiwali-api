@@ -22,5 +22,7 @@ My personal blog about technology articles. topic includes django, RestAPI , Jav
 - Subscriber
 
 ## ERD
+![CodeWithAbdiwali](https://github.com/user-attachments/assets/32f49b75-1a23-41fd-b1bc-abf7c124f42a)
+
     
   
