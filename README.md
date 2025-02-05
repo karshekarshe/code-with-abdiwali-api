@@ -12,12 +12,12 @@ My personal blog about technology articles. topic includes django, RestAPI , Jav
 - User' can view my profile.
 - User's switch theme for accessibility
 
-  ## Models
-  -User - Custom user mdoel
-  -Article model
-  -Comment
-  -Category
+## Models
+-User
+-Article model
+-Comment
+-Category
 
-  - ERD
+## ERD
     
   
