@@ -13,10 +13,10 @@ My personal blog about technology articles. topic includes django, RestAPI , Jav
 - User's switch theme for accessibility
 
 ## Models
--User
--Article model
--Comment
--Category
+- User
+- Article model
+- Comment
+- Category
 
 ## ERD
     
