@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "codewithabdiwali"
+version = "0.1.0"
+description = ""
+authors = ["Abdiwali Maxamed <abdiwali.maxamed.hersi@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.6"
+djangorestframework = "^3.15.2"
+django-mptt = "^0.16.0"
+pillow = "^11.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
