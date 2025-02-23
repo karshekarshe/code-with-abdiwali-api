@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.utils.text import slugify
 from mptt.models import MPTTModel, TreeForeignKey
@@ -6,10 +8,12 @@ from mptt.models import MPTTModel, TreeForeignKey
 class Category(MPTTModel):
     """Category model which represents a category for article"""
 
-    id = models.UUIDField(primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.PROTECT)
+    parent = TreeForeignKey(
+        "self", null=True, blank=True, related_name="children", on_delete=models.PROTECT
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -22,14 +26,24 @@ class Category(MPTTModel):
 
         return super().save(*args, **kwargs)
 
+
 class Article(models.Model):
-    id = models.UUIDField(primary_key=True)
+    """Blog's article model"""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255, unique=True)
     content = models.TextField()
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
-    author = models.ForeignKey('User', on_delete=models.PROTECT, related_name='articles', limit_choices_to={'is_admin': True})
+    author = models.ForeignKey(
+        "user.User",
+        on_delete=models.PROTECT,
+        related_name="articles",
+        limit_choices_to={"is_admin": True},
+    )
     votes = models.PositiveIntegerField(default=0)
-    category = models.ForeignKey('Category', on_delete=models.PROTECT, related_name='articles')
+    category = models.ForeignKey(
+        "Category", on_delete=models.PROTECT, related_name="articles"
+    )
     reading_time = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -47,10 +61,12 @@ class Article(models.Model):
 
 
 class Tag(models.Model):
-    id = models.UUIDField(primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
-    article = models.ForeignKey('Article', related_name='tags', on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        "Article", related_name="tags", on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
